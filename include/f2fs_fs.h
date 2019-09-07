@@ -1449,10 +1449,11 @@ static inline int parse_root_owner(char *ids,
 {
 	char *uid = ids;
 	char *gid = NULL;
-	int i;
+	int i, len;
 
+	len = strlen(ids) - 1;
 	/* uid:gid */
-	for (i = 0; i < strlen(ids) - 1; i++)
+	for (i = 0; i < len; i++)
 		if (*(ids + i) == ':')
 			gid = ids + i + 1;
 	if (!gid)
